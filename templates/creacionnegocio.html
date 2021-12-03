@@ -72,7 +72,7 @@
 </nav>
 
 
-  <form action="/negociocreado/nuevonegocio" method="POST">
+  <form action="/negociocreado/panaderia" method="POST">
     <h1 for="basic-url" class="form-label">Crea tu negocio</h1>
     
     <label for="basic-url" class="form-label">Datos basicos</label>
@@ -81,8 +81,18 @@
       <input name= "nombrenegocio" type="text" placeholder="Ejemplo: panes juan" aria-label="First name" class="form-control"><br>
     </div>
 
+
+
+    <label for="basic-url" class="form-label">Tipo de negocio</label>
+    <div class="input-group mb-3">
+      <select name="tiponegocio" id="tiponegocio" class="form-control">
+        <option value="panaderia">panaderia</option>
+        <option value="moda">moda</option>
+      </select><br>
     </div>
     <button type="submit" class="btn btn-primary">CREAR NEGOCIO</button>
+
+
   </form>
   
 

@@ -26,18 +26,15 @@ def bienvenida():
 def inicio():
     return render_template('inicio.html')
 
-@app.route('/tiponegocio')
-def formulariotiponegocio():
+@app.route('/crearnegocios')
+def formulariocrearnegocio():
     
-    return render_template('tiponegocio.html')
-
-@app.route('/detallesnegocio')
-def formulariodetallesnegocio():
-    return render_template('creacionnegocionegocio.html')
+    return render_template('creacionnegocio.html')
 
 
 
-@app.route('/negociocreado/<negocio>')
+
+@app.route('/negociocreado/<negocio>', methods= ['POST'])
 def creacionnegocio(negocio):
     #aca verificamos si la cookie es valida y extraemos el correo
     #del usuario
@@ -45,8 +42,12 @@ def creacionnegocio(negocio):
         #aca extraemos el email del usuario
         correo = session['user']
         #HACEMOS LA INSCRIPCION AL CURSO MEDIANTE SU correo
+        negocio = request.form.get("tiponegocio")
         if negocio == "panaderia" or negocio == "moda":
-            negocios_usuarios[negocio]["correo"] = correo
+            nombrenegocio = request.form.get("nombrenegocio")
+            print('se ha creado un nuevo negocio:  ',nombrenegocio)
+            negocios_usuarios[negocio][correo] = {}
+            negocios_usuarios[negocio][correo]["nombrenegocio"] = nombrenegocio
 
         else:
             return "error, usted solo puede crear un negocio valido", 401
@@ -99,8 +100,8 @@ def registrohecho():
     msg['To'] = 'juanpalabloramirezavs@gmail.com'
     msg['Subject'] = 'BIENVENIDO A TURISTAPP 2'
     servidor.sendmail(msg['From'] , msg['To'], msg.as_string())
-    """
-    print('se ha enviado un correo a',usuarios[correo])
+    
+    print('se ha enviado un correo a',usuarios[correo])"""
     return render_template('registrohecho.html')
     
 
