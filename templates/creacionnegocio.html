@@ -56,23 +56,44 @@
     </div>
   </div>
 
-
+  
   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     <li class="nav-item dropdown">
-
+      
+      {% if nav_logueado %}
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Usuario
+        {{ nombre_usuario }}
+      </a>
+      <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -110px;">
+        <li><a class="dropdown-item" href="#">Mi Perfil</a> </li>
+        <li><a class="dropdown-item" href="/cerrarsesion">Cerrar Sesion</a></li>
+      </ul>
+      {% endif %}
+      {% if not nav_logueado %}
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Iniciar sesion
       </a>
       <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -77px;">
         <li><a class="dropdown-item" href="/login">Iniciar Sesion</a> </li>
         <li><a class="dropdown-item" href="/registro">registrarte</a></li>
       </ul>
+      {% endif %}
   </ul>
+  
+
+
 
 </nav>
 
 
   <form action="/negociocreado/panaderia" method="POST">
+
+    {% if errornegocio %}
+    <p><div class="alert alert-danger" role="alert">
+      error, debes crear un negocio valido
+    </div></p>
+    {% endif %}
+
     <h1 for="basic-url" class="form-label">Crea tu negocio</h1>
     
     <label for="basic-url" class="form-label">Datos basicos</label>
@@ -90,6 +111,19 @@
         <option value="moda">moda</option>
       </select><br>
     </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Descripcion del negocio</span>
+      <input name= "descripcionnegocio" type="text" placeholder="Ejemplo: encuentra la mejor comida de la ciudad!" aria-label="First name" class="form-control"><br>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">imagen para tu negocio</span>
+      <input name= "imagennegocio" type="text" placeholder="ingresa un enlace, Ejemplo: https://www.sitio.com/imagen.jpg" aria-label="First name" class="form-control"><br>
+    </div>
+
+
+
     <button type="submit" class="btn btn-primary">CREAR NEGOCIO</button>
 
 

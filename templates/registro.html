@@ -62,18 +62,32 @@
       </div>
     </div>
 
-
+    
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item dropdown">
-
+        
+        {% if nav_logueado %}
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Usuario
+          {{ nombre_usuario }}
+        </a>
+        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -110px;">
+          <li><a class="dropdown-item" href="/miperfil">Mi Perfil</a> </li>
+          <li><a class="dropdown-item" href="/cerrarsesion">Cerrar Sesion</a></li>
+        </ul>
+        {% endif %}
+        {% if not nav_logueado %}
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Iniciar sesion
         </a>
         <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -77px;">
           <li><a class="dropdown-item" href="/login">Iniciar Sesion</a> </li>
           <li><a class="dropdown-item" href="/registro">registrarte</a></li>
         </ul>
+        {% endif %}
     </ul>
+    
+
+
 
   </nav>
 
@@ -94,6 +108,16 @@
     <div class="input-group mb-3">
       <span class="input-group-text" id="basic-addon1">@</span>
       <input name= "username" type="text" class="form-control" placeholder="Ejemplo: PerezJuan1234" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <label for="basic-url" class="form-label">Una breve descripcion tuya</label>
+    <div class="input-group mb-3">
+      <input name= "descripcion" type="text" class="form-control" placeholder="ejemplo: hola buenas tardes soy el mejor" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <label for="basic-url" class="form-label">Foto de perfil</label>
+    <div class="input-group mb-3">
+      <input name= "fotoperfil" type="text" class="form-control" placeholder="ingresa un enlace, ejemplo: https://sitio.com/imagen.jpg" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
 

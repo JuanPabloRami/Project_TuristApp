@@ -11,10 +11,27 @@
 <body>
   
   <style>
+
+    body{
+          margin: 0 auto;
+          max-width: 1600;
+        }
+    section{
+
+    margin:100px 300px;
+    }
+    section h1{
+    position: center;
+    }
+    section button{
+    position: center;
+    }
     form
     {
     margin:100px 300px;
     }
+
+
   </style>
 
 
@@ -27,18 +44,18 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-  
+
           <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Donde te encuentras?</a>
           </li>
-  
+
           <li class="nav-item">
             <a class="nav-link" href="#">Contactanos</a>
           </li>
-  
+
         </ul>        
       </div>
     </div>
@@ -46,17 +63,60 @@
     
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item dropdown">
-  
+        
+        {% if nav_logueado %}
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Usuario
+          {{ nombre_usuario }}
+        </a>
+        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -110px;">
+          <li><a class="dropdown-item" href="/miperfil">Mi Perfil</a> </li>
+          <li><a class="dropdown-item" href="/cerrarsesion">Cerrar Sesion</a></li>
+        </ul>
+        {% endif %}
+        {% if not nav_logueado %}
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Iniciar sesion
         </a>
         <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -77px;">
           <li><a class="dropdown-item" href="/login">Iniciar Sesion</a> </li>
           <li><a class="dropdown-item" href="/registro">registrarte</a></li>
         </ul>
+        {% endif %}
     </ul>
+    
+
+
 
   </nav>
+
+  <section>
+
+    {% if loginok %}
+    <p><div class="alert alert-success" role="alert">
+      REGISTRO EXITOSO!, INICIA SESION
+    </div></p>
+    {% endif %}
+    
+    {% if errorsesion %}
+    <p><div class="alert alert-danger" role="alert">
+      ERROR, USTED NO HA INICIADO SESION
+    </div></p>
+    {% endif %}
+
+
+    {% if cuentanoexiste %}
+    <p><div class="alert alert-danger" role="alert">
+      ERROR, ESTA CUENTA NO EXISTE
+    </div></p>
+    {% endif %}
+
+    {% if credencialincorrecta %}
+    <p><div class="alert alert-danger" role="alert">
+      "Usuario o password incorrecto"
+    </div></p>
+    {% endif %}
+
+  </section> 
 
   <form action="/logueado" method="POST">
   <h1 for="basic-url" class="form-label">Ya tienes cuenta? inicia sesion</h1>

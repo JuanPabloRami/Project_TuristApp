@@ -21,16 +21,59 @@ app.secret_key = "ajhsdg56dkgasdhbs"
 def bienvenida():
     return render_template('bienvenida.html')
 
+@app.route('/cerrarsesion')
+def cerrar_sesion():
+    if 'user' in session:
+        session.pop('user')
+        return render_template ("inicio.html", despedida =  True)
+    return render_template ("login.html", errorsesion = True)
 
 @app.route('/')
 def inicio():
-    return render_template('inicio.html')
+    if 'user' in session:
+        correo = session['user']
+        nombreusuario = usuarios[correo]["username"]
+        return render_template('inicio.html',nombre_usuario = nombreusuario ,nav_logueado=True)
+    return render_template('inicio.html',nav_logueado=False)
 
 @app.route('/crearnegocios')
 def formulariocrearnegocio():
-    
-    return render_template('creacionnegocio.html')
+    if 'user' in session:
+        correo = session['user']
+        nombreusuario = usuarios[correo]["username"]
+        print('funciona?',nombreusuario)
+        return render_template('creacionnegocio.html',nombre_usuario = nombreusuario, nav_logueado = True)
+    return render_template ("login.html", errorsesion = True, nav_logueado = False)
 
+@app.route('/miperfil/')
+def mi_perfil():
+    if 'user' in session:
+        correo = session['user']
+        nombreusuario = usuarios[correo]["username"]
+        foto_perfil = usuarios[correo]["fotoperfil"]
+        descrip_cion = usuarios[correo]["descripcion"]
+
+        arreglo_misnegocios = []
+        for negocio in negocios_usuarios:
+            for correo_usuario in negocios_usuarios[negocio]:
+                if correo_usuario == correo:
+                    negocio_creado = []
+                    negocio_creado.append(negocio)
+                    negocio_creado.append(negocios_usuarios[negocio][correo]["nombrenegocio"])
+                    negocio_creado.append(negocios_usuarios[negocio][correo]["descripcionnegocio"])
+                    negocio_creado.append(negocios_usuarios[negocio][correo]["imagennegocio"])
+                    arreglo_misnegocios.append(negocio_creado)
+        print('arreglo_misnegocios :', arreglo_misnegocios)
+
+        return render_template('perfil.html', nombre_usuario = nombreusuario, nav_logueado = True, fotoperfil = foto_perfil, descripcion = descrip_cion, arreglo_misnegocios = arreglo_misnegocios)
+    return render_template ("login.html", errorsesion = True , nav_logueado = False)
+
+
+"""@app.route('/perfil/<correo>')
+def perfiles(correo):
+    correo = usuarios[correo]
+    nombreusuario = usuarios[correo]["username"]
+    return render_template('perfil.html',nombre_usuario = nombreusuario)"""
 
 
 
@@ -45,22 +88,39 @@ def creacionnegocio(negocio):
         negocio = request.form.get("tiponegocio")
         if negocio == "panaderia" or negocio == "moda":
             nombrenegocio = request.form.get("nombrenegocio")
+            imagennegocio = request.form.get("imagennegocio")
+            descripcionnegocio = request.form.get("descripcionnegocio")
             print('se ha creado un nuevo negocio:  ',nombrenegocio)
             negocios_usuarios[negocio][correo] = {}
             negocios_usuarios[negocio][correo]["nombrenegocio"] = nombrenegocio
+            negocios_usuarios[negocio][correo]["imagennegocio"] = imagennegocio
+            negocios_usuarios[negocio][correo]["descripcionnegocio"] = descripcionnegocio
 
-        else:
-            return "error, usted solo puede crear un negocio valido", 401
         print("negocios creados:  ", negocios_usuarios)
-        nombreusuario = usuarios[correo]["primernombre"]
-        return "Señor {} Usted ha creado su nuevo negocio ".format(nombreusuario), 201 
-    return redirect('/login' , 'error , debe iniciar !!funciona!!sesion')
+        nombreusuario = usuarios[correo]["username"]
+        foto_perfil = usuarios[correo]["fotoperfil"]
+        descrip_cion = usuarios[correo]["descripcion"]
+        print('foto perfil: ',foto_perfil)
+        arreglo_misnegocios = []
+        for negocio in negocios_usuarios:
+            for correo_usuario in negocios_usuarios[negocio]:
+                if correo_usuario == correo:
+                    negocio_creado = []
+                    negocio_creado.append(negocio)
+                    negocio_creado.append(negocios_usuarios[negocio][correo]["nombrenegocio"])
+                    negocio_creado.append(negocios_usuarios[negocio][correo]["descripcionnegocio"])
+                    negocio_creado.append(negocios_usuarios[negocio][correo]["imagennegocio"])
+                    arreglo_misnegocios.append(negocio_creado)
+        print('arreglo_misnegocios :', arreglo_misnegocios)
+
+        return render_template ("perfil.html", creadonegocio = True, nav_logueado = True, nombre_usuario = nombreusuario, fotoperfil = foto_perfil, descripcion = descrip_cion, arreglo_misnegocios = arreglo_misnegocios)
+    return render_template('login.html' , errorsesion = True , nav_logueado = False)
 
 
 
 @app.route('/registro')
 def registro():
-    return render_template('registro.html')
+    return render_template('registro.html', nav_logueado = False)
 
 @app.route('/registrohecho', methods= ['POST'])
 def registrohecho():
@@ -69,11 +129,15 @@ def registrohecho():
     username = request.form.get("username")
     primernombre= request.form.get("primernombre")
     segundonombre = request.form.get("segundonombre")
+    descripcion = request.form.get("descripcion")
+    fotoperfil = request.form.get("fotoperfil")
     usuarios[correo] = {}
     usuarios[correo]["contrasena"] = contrasena
     usuarios[correo]["username"] = username
     usuarios[correo]["primernombre"] = primernombre
     usuarios[correo]["segundonombre"] = segundonombre
+    usuarios[correo]["descripcion"] = descripcion
+    usuarios[correo]["fotoperfil"] = fotoperfil
     print("------------------------------------------------------------")
     print(correo,"se ha registrado")
     print("--------------------------------------------------------------------------------------------------------------------")
@@ -102,13 +166,13 @@ def registrohecho():
     servidor.sendmail(msg['From'] , msg['To'], msg.as_string())
     
     print('se ha enviado un correo a',usuarios[correo])"""
-    return render_template('registrohecho.html')
+    return render_template('login.html', loginok = True, nav_logueado = False)
     
 
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('login.html', nav_logueado = False)
 
 
 @app.route('/logueado', methods= ['POST'])
@@ -127,9 +191,23 @@ def logueado():
             #tabien, podriamos hacerlo con el id de base de datos etc
             #tambein, podriamos agregar mas valores a la cookie
             session['user'] = correo
-            return render_template('perfil.html', nombre_usuario=nombre)
-        return "Usuario o password incorrecto"
-    return "Esta cuenta no existe, registrese.", 401
+            if 'user' in session:
+                foto_perfil = usuarios[correo]["fotoperfil"]
+                descrip_cion = usuarios[correo]["descripcion"]
+                arreglo_misnegocios = []
+                for negocio in negocios_usuarios:
+                    for correo_usuario in negocios_usuarios[negocio]:
+                        if correo_usuario == correo:
+                            negocio_creado = []
+                            negocio_creado.append(negocio)
+                            negocio_creado.append(negocios_usuarios[negocio][correo]["nombrenegocio"])
+                            negocio_creado.append(negocios_usuarios[negocio][correo]["descripcionnegocio"])
+                            negocio_creado.append(negocios_usuarios[negocio][correo]["imagennegocio"])
+                            arreglo_misnegocios.append(negocio_creado)
+                print('arreglo_misnegocios :', arreglo_misnegocios)
+                return render_template('perfil.html', nombre_usuario=nombre , nav_logueado=True, fotoperfil = foto_perfil, descripcion = descrip_cion, arreglo_misnegocios = arreglo_misnegocios )
+        return render_template ("login.html", credencialincorrecta = True, nav_logueado = False) 
+    return render_template ("login.html", cuentanoexiste = True, nav_logueado = False)
 
 
 
