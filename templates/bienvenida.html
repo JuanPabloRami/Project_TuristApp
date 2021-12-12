@@ -9,50 +9,68 @@
 </head>
 <body>
   <style>
-    main{
-      width: 700px;
+    body{
+      background-image: url(/static/images/bienvenida.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    header{
+      margin: auto;
       text-align: center;
-      margin: 0 auto;
-      height:auto;
+      width: 100%;
+      margin-bottom: 200px;
     }
-    .imagen{
-      width: 300px;
-      height: 250px;
-    }
-    .bienvenido{
-      float:right;
-    }
-    .letra{
-      width: 700px;
+    nav{
+      background: #000000;
       text-align: center;
-      margin: 0 auto;
+      padding: 1px;
+      margin: auto;
     }
-    .fondo{
-      margin: 0 auto;
-      position: absolute;
-      z-index: -1;
-      max-width:100%;
-      width:auto;
-      height:auto;
+    .turistapp{
+      padding: 15px;
+      font-family: Stencil;
+      font-size: 40px;
+      text-decoration: none;
+      color:rgb(184, 184, 184);
     }
     section{
-      width: 700px;
+      color: #fff;
+      margin: auto;
       text-align: center;
-      border: #00000000 5px solid;
-      margin: 0 auto;
-      margin-top: 100px;
-      border-radius: 10px;
-      background-color: #7c7b7bb0;
-      box-shadow: 5px 6px 6px 4px #000000a8;
-      z-index: 1;
-      position: absolute
     }
-    p{
-      color:black;
-      
+    section h5{
+      float: left;
+      margin-top: 12px;
+      font-family: Stencil;
+      text-decoration: none;
+      color:rgb(0, 0, 0);
+      text-align: center;
+    }
+    section p{
+      float: left;
+      margin-top: 5px;
+      text-decoration: none;
+      color:rgb(0, 0, 0);
+      text-align: center;
+    }
+    .todo{
+      background: rgba(158, 156, 156, 0.719);
+      border-radius: 10px ;
+      margin: auto;
+      width: 500px;
+      text-align: center;
+    }
+    .imagen{
+      width: 60px;
+      margin: auto;
+      text-align: center;
+      float: left;
+    }
+    .clear{
+      clear: both;
     }
     .boton{
-      background-color: #7c7b7b9f;
+      background-color: #504f4f9f;
       color: black;
       border: 1px #7c7b7b9f solid;
       padding-bottom: 5px;
@@ -67,71 +85,41 @@
       background-color: rgb(29, 29, 29);
       transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     }
-
+    footer{
+      margin: auto;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      color: white;
+      background: black;
+      text-align: center;
+    }
   </style>
 
-  <div class="fondo">
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="4000">
-          <img src="https://fondosmil.com/fondo/71335.jpg" class="d-block w-100">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="https://www.wallpapertip.com/wmimgs/15-156960_hotels-images-hd.jpg" class="d-block w-100">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="https://www.wallpapertip.com/wmimgs/34-348878_yosemite-national-park-in-california-us-tourist-place.jpg" class="d-block w-100">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="https://fondosmil.com/fondo/39283.jpg" class="d-block w-100">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="https://images7.alphacoders.com/977/thumb-1920-977986.jpg" class="d-block w-100">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-  
-  <main>
-    <section>
-        <h1 class="letra">TuristApp</h1><br>
-        <img class="imagen" src="https://images.vexels.com/media/users/3/189958/isolated/preview/a8fceff32326526be33614491c430eaa-turista-con-silueta-de-bolsos.png">
-        <div class="bienvenido">
-          <h3><b>¡Bienvenido a TuristApp!</b></h3>
-          <p><b>TuristApp</b> ,es un aplicativo web en el que nuestros usuarios podran encontrar ubicaciones de: hoteles,
-          centros comerciales, diversion, negocios entre otros. Lo que hará, que el usuario pueda destinarse más facíl
-          a la ubicación que el más desee.</p>
-          <p><b>Nosotros somos empresa, somos pasión.</b></p>
-          <a href="/"><button class="boton"  type="button">Empezemos</button><br></a>
+  <header>
+    <nav>
+        <div class="turistapp">TuristApp</div>
+    </nav>
+</header>
 
-      </div>
-    </section>
-  </main>
+ <section>
+  <div class="todo">
+    <img class="imagen" src="/static/images/logo11.png">
+    <h5>TuristApp</h5>
+    <p><b>TuristApp</b> ,es un aplicativo web en el que nuestros usuarios podran encontrar ubicaciones de: hoteles,
+      centros comerciales, diversion, negocios entre otros. Lo que hará, que el usuario pueda destinarse más facíl
+      a la ubicación que el más desee.</p>
+      <p><b>Nosotros somos empresa, somos pasión.</b></p><br>
+      <a href="/">
+        <button class="boton"  type="button">¿Empezamos?</button>
+      </a>
+    <div class="clear"></div>
+  </div>
+</section>
+
+<footer>
+  <p> &copy;TuristApp INC.</p>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
