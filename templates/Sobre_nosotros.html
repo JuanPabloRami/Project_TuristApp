@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nosotros - TuristApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<style>
+      terminos condiciones
+
+      body{
+        background: radial-gradient(circle at top left, #ffffff, #cccccc);  
+      }
+      .main{
+        width: 1200px;
+        margin: 20px auto;
+      }
+      .todo_footer{
+        width: 100%;
+        background-color: #000000;;
+        border-style: solid;
+        border-color: #000000;
+        color: aliceblue;
+        text-align: center;
+        float: left;
+      
+      }
+      .foto-footer{
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: 15px;
+      }
+      .foto-footer:hover{
+        box-shadow: blue;
+      }
+      .Logos-footer{
+        float: left;                                                                                                                                                                                                                                                
+        margin-left: 370px;
+        margin-right:350px;  
+      }
+      /* listas-footer */
+      .texto-footer{
+        text-align: left;
+        float: left;
+        margin-left: 40px;
+        border-style: none;
+      }
+      .texto-footer h2{
+        text-align: right;  
+      }
+      .texto-footer a{
+        list-style: none;
+        color: azure;
+        text-decoration: none;
+      }
+      .texto-footer li{
+        margin-top: 20px;
+        list-style: none;
+      }
+      /* listas footer 2*/
+      .texto-footerV2{
+        text-align: right;
+        float: left;
+        border-style: none;
+      }
+      .texto-footerV2 a{
+        list-style: none;
+        color: azure;
+        text-decoration: none;
+      }
+      .texto-footerV2 li{
+        margin-top: 20px;
+        list-style: none;
+      }
+      .texto-sombra:hover{
+        text-decoration-line: underline;
+      }
+      header{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        left: 0;
+      }
+      nav{
+        background: #000000;
+        text-align: right;
+        padding: 1px;
+        
+      }
+      nav ul{
+        border-radius: 10px;
+        float: right;
+        margin-top: 20px;
+        margin-right: 10px;
+        padding: 5px;
+      }
+      nav ul li{
+        position: center;
+        margin: 5px;
+        text-align: right;
+        display: inline;
+        text-decoration: none;
+        padding: 6px;
+        border-radius: 10px;
+      }
+      nav ul li a{
+        color: rgb(255, 255, 255);
+        margin: 11px;
+        text-decoration: none;
+      }
+      nav ul li :hover{
+        margin: 5px;
+        background-color:#242323;
+        color:#fff4f4;
+        border-radius: 10px;
+        padding: 6px;
+      }
+      nav form{
+        float:left;
+        margin-top: 17px;
+        margin-left: 520px;
+      }
+      nav form input[type="submit"]{
+        color: #fff;
+        padding: 3px;
+        background: none;
+        border: none;
+      }
+      nav form input[type="search"]{
+        border: none;
+        background: #3d3b3c;
+        padding: 4px;
+        margin-right : 10px;
+        border-radius: 4px ;
+      }
+      nav form input[type="search"]:hover{
+        background: #727272;
+      }
+      nav form input[type="submit"]:hover{
+        border-radius: 5px;
+        background-color:#383838;;
+        color:#e4e4e4;
+        padding: 4px;
+      }
+      ::-webkit-input-placeholder {
+      color: rgb(255, 255, 255);
+      }
+      .clear{
+        clear: both;
+      }
+      .container{
+        padding: 4rem;
+      }
+
+      .logo img{
+        width: 50px;
+        margin-top: 10px;
+        margin-left: 10px;
+        float: left;
+      }
+      .turistapp{
+        margin-top: 20px;
+        float: left;
+        font-family: Stencil;
+        text-decoration: none;
+        color:rgb(184, 184, 184);
+      }
+      .turistapp:hover{
+        color: rgb(255, 255, 255);
+      }
+  
+      .drop{
+        margin-right: 40px;
+        margin-top: 10px;
+        background: none;
+        border: none;
+      }
+      #dropdownMenuLink{
+        background: rgb(211, 211, 211);
+        border:none;
+        color:rgb(0, 0, 0)
+      }
+      .dropdown-menu{
+        background:rgb(211, 211, 211);
+      }
+      .dropdown-menu a{
+        color:rgb(0, 0, 0);
+      }
+      .dropdown-menu a:hover{
+        background: #cac3c5;
+        color: #050505;
+      }
+      .dropdown-menu li{
+        display: block;
+        text-align: left;
+      }
+        .texto-info{
+            border-style: solid; border-color: #000000; margin: 1px;
+            color: rgb(255, 255, 255);
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 300px;
+            margin-bottom: 200px;
+            background: #000000;
+        }
+        .text-descripcion{
+            border-style: solid;
+            color: #000000;
+            border-color:#ffffff;
+            background-color: rgb(255, 255, 255);
+            padding: 10px 10px;
+        }
+
+      /* FOOTER*/
+      .todo_footer{        
+        width: 100%;
+        background-color: #000000;;
+        border-style: solid;
+        border-color: #000000;
+        color: aliceblue;
+        text-align: center;
+        float: left;
+          
+      }
+
+        
+      .foto-footer{
+            width: 30px;
+            height: 30px;
+
+            margin-top: 15px;
+      }
+      .Logos-footer{
+            float: left;                                                                                                                                                                                                                                                
+            margin-left: 370px;
+            margin-right:350px;   
+      }
+        /* listas-footer */
+      .texto-footer{
+          text-align: left;
+          float: left;
+          margin-left: 40px;
+          border-style: none;
+      }
+      .texto-footer h2{
+          text-align: right;   
+      }
+      .texto-footer a{
+          list-style: none;
+          color: azure;
+          text-decoration: none;
+      }
+      .texto-footer li{
+          margin-top: 20px;
+          list-style: none;
+      }
+        /* listas footer 2*/
+      .texto-footerV2{
+          text-align: right;
+          float: left;
+          border-style: none;
+      }
+      .texto-footerV2 a{
+          list-style: none;
+          color: azure;
+          text-decoration: none;
+      }
+      .texto-footerV2 li{
+          margin-top: 20px;
+          list-style: none;
+      }
+      .texto-sombra:hover{
+            text-decoration-line: underline;
+      }
+      .clear{
+            clear: both;
+      }
+
+      .texto-cambio{
+        text-decoration-line: underline;
+      }
+      
+        /*CIERRE FOOTER*/
+  
+        
+        
+        
+</style>
+    <header>
+        <nav>
+          <a href="/">
+            <div class="logo">
+              <img src="/static/images/logo.png">
+              <div class="turistapp">TuristApp</div>
+            </div> 
+          </a>
+          <form>
+            <input type="search" placeholder="Buscar...">
+            <input type="submit" value="Buscar">
+          </form>
+          {% if not nav_logueado %}
+          <ul>
+            <li><a href="login">Iniciar sesión</a></li> /
+            <li><a href="registro">Registrarse</a></li>
+          </ul>
+          {% endif %}
+          {% if nav_logueado %}
+          <div class="drop">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+              {{nombre_usuario}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a  href="/perfil">Mi Perfil</a></li>
+              <li><a  href="/cerrarsesion">Cerrar Sesion</a></li>
+            </ul>
+            </div>
+            {% endif %}
+          <div class="clear"></div>
+        </nav>
+    </header>
+
+    <!--  fin Encabezado -->
+
+    <div class="texto-info">
+
+        
+      <h2 class="titulos">SOBRE NOSOTROS</h2>
+      
+      <div class="text-descripcion"> 
+        TuristApp nació con el único propósito de ofrecer a los emprendedores; grandes y pequeños una plataforma para listar sus negocios en línea para que el mundo conozca sus productos o servicios.
+        Nos esforzamos por hacer que la plataforma sea simple y fácil de utilizar tanto para los propietarios de negocios como para los clientes o visitantes;
+        Nuestro servicio de suscripción para propietarios de negocios está diseñado para brindarle una manera de maximizar la exposición de su negocio y llegar a más clientes potenciales. 
+      </div>
+    </div>
+      <footer class="todo_footer">
+        <div class="texto-footer">
+          <h2>Soporte tecnico</h2>
+          <ul>
+              <li class="texto-sombra"><a href="contactanos">Contactanos</a></li>
+              <li class="texto-sombra"><a href="terminos_condiciones">Terminos y condiciones</a></li>
+              <li class="texto-sombra"><a href="politica_privacidad">Politica de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="Logos-footer">
+          <h2>TuristApp</h2>
+              <a href="https://www.facebook.com/groups/440829344233658" target="blank"><img class="foto-footer"src="static/images/facebook.png"></a>
+              <a href="Soporte_techico.html"><img class="foto-footer"src="static/images/instagram-blanco.png"></a>
+              <a href="servicios.html"><img class="foto-footer"src="static/images/twiter.png"></a>
+              <a href="servicios.html"><img class="foto-footer"src="static/images/logo-youtube.png"></a>
+        </div>
+        <div class="texto-footerV2">
+          <h2>Nosotros</h2>
+          <ul>
+              <li class="texto-cambio"><a href="Sobre_nosotro">Sobre nosotros</a></li>
+              <li class="texto-sombra"><a href="Quienes_Somos">Quienes Somos</a></li>
+              <li class="texto-sombra"><a href="Desarrolladores">Desarrolladores</a></li>
+          </ul>
+          
+        </div>
+        <div class="clear"></div>
+    
+      </footer>
+</body>
+</html>
