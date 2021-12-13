@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicia sesion - TuristApp</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+  <style>
+    body{
+      background: radial-gradient(circle at top left, #ffffff, #cccccc);  
+      
+    }
+    header{
+      width: 100%;
+    }
+    nav{
+      background: #000000;
+      text-align: right;
+      padding: 1px;
+      margin-bottom: 20px;
+    }
+    nav ul{
+      border-radius: 10px;
+      float: right;
+      margin-top: 20px;
+      margin-right: 10px;
+      padding: 5px;
+    }
+    nav ul li{
+      position: center;
+      margin: 5px;
+      text-align: right;
+      display: inline;
+      text-decoration: none;
+      padding: 6px;
+      border-radius: 10px;
+    }
+    nav ul li a{
+      color: rgb(255, 255, 255);
+      margin: 11px;
+      text-decoration: none;
+    }
+    nav ul li :hover{
+      margin: 5px;
+      background-color:#575656;
+      color:#ffffff;
+      border-radius: 10px;
+      padding: 6px;
+    }
+    nav form{
+      float:left;
+      margin-top: 17px;
+      margin-left: 520px;
+    }
+    nav form input[type="submit"]{
+      color: #fff;
+      padding: 3px;
+      background: none;
+      border: none;
+    }
+    nav form input[type="search"]{
+      border: none;
+      background: #3d3b3c;
+      padding: 4px;
+      margin-right : 10px;
+      border-radius: 4px ;
+    }
+    nav form input[type="search"]:hover{
+      background: #727272;
+    }
+    nav form input[type="submit"]:hover{
+      border-radius: 5px;
+      background-color:#383838;
+      color:#e4e4e4;
+      padding: 4px;
+    }
+    ::-webkit-input-placeholder {
+    color: rgb(255, 255, 255);
+    } 
+    .clear{
+      clear: both;
+    }
+    .logo img{
+      width: 50px;
+      margin-top: 10px;
+      margin-left: 10px;
+      float: left;
+    }
+    .turistapp{
+      margin-top: 20px;
+      float: left;
+      font-family: Stencil;
+      text-decoration: none;
+      color:rgb(184, 184, 184);
+    }
+    .turistapp:hover{
+      color: rgb(255, 255, 255);
+    }
+    .drop{
+      margin-right: 40px;
+      margin-top: 10px;
+      background: none;
+      border: none;
+    }
+    #dropdownMenuLink{
+      background: rgb(211, 211, 211);
+      border:none;
+      color:rgb(0, 0, 0)
+    }
+    .dropdown-menu{
+      background:rgb(211, 211, 211);
+    }
+    .dropdown-menu a{
+      color:rgb(0, 0, 0);
+    }
+    .dropdown-menu li{
+      display: block;
+      text-align: left;
+    }
+    .login{
+      border: 1px rgb(0, 0, 0) solid;
+      background: rgb(255, 255, 255);
+      border-radius: 19px;
+      padding: 50px;
+      width: 700px;
+      margin: 0 auto;
+    }
+    #exampleInputEmail1{
+      border: none;
+      border-bottom: 1px black solid;
+    }
+    #exampleInputPassword1{
+      border: none;
+      border-bottom: 1px black solid;
+    }
+    .btn{
+      background: #000000;
+      color: white;
+    }
+  </style>
+  <header>
+    <nav>
+      <a href="/">
+        <div class="logo">
+          <img src="static/images/logo.png" aling="center">
+          <div class="turistapp">TuristApp</div>
+        </div> 
+      </a>
+      <form>
+        <input type="search" placeholder="Buscar...">
+        <input type="submit" value="Buscar">
+      </form>
+      {% if not nav_logueado %}
+      <ul>
+        <li><a href="login">Iniciar sesión</a></li> /
+        <li><a href="registro">Registrarse</a></li>
+      </ul>
+      {% endif %}
+      {% if nav_logueado %}
+      <div class="drop">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+          {{nombre_usuario}}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a  href="/perfil">Mi Perfil</a></li>
+          <li><a  href="/cerrarsesion">Cerrar Sesion</a></li>
+        </ul>
+        </div>
+        {% endif %}
+      <div class="clear"></div>
+    </nav>
+</header>
+
+<section>
+  {% if loginok %}
+  <p><div class="alert alert-success" role="alert">
+    REGISTRO EXITOSO!, INICIA SESION
+  </div></p>
+  {% endif %}
+    
+  {% if errorsesion %}
+  <p><div class="alert alert-danger" role="alert">
+    ERROR, USTED NO HA INICIADO SESION
+  </div></p>
+  {% endif %}
+
+  {% if cuentanoexiste %}
+  <p><div class="alert alert-danger" role="alert">
+    ERROR, ESTA CUENTA NO EXISTE
+  </div></p>
+  {% endif %}
+
+  {% if credencialincorrecta %}
+  <p><div class="alert alert-danger" role="alert">
+    "Usuario o password incorrecto"
+  </div></p>
+  {% endif %}
+</section> 
+
+<div class="login">
+  <form action="/logueado" method="POST">
+  <h1 for="basic-url" class="form-label">Inicia sesión</h1>
+      
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+      <input name="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input name = "contrasena" type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <button type="submit" class="btn">iniciar sesion</button>
+  </form>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
