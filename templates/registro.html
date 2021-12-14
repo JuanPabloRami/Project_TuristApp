@@ -4,141 +4,233 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicia Sesion</title>
+  <title>Registrate - TuristApp</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="shortcut icon" href="static/images/logo.png"/>
 </head>
-
-
-
-
-<body>
-
-
-  <style>
-
-
-
+<style>
     body{
+      background: radial-gradient(circle at top left, #ffffff, #cccccc);  
+      
+    }
+    header{
+      width: 100%;
+    }
+    nav{
+      background: #000000;
+      text-align: right;
+      padding: 1px;
+      margin-bottom: 20px;
+    }
+    nav ul{
+      border-radius: 10px;
+      float: right;
+      margin-top: 20px;
+      margin-right: 10px;
+      padding: 5px;
+    }
+    nav ul li{
+      position: center;
+      margin: 5px;
+      text-align: right;
+      display: inline;
+      text-decoration: none;
+      padding: 6px;
+      border-radius: 10px;
+    }
+    nav ul li a{
+      color: rgb(255, 255, 255);
+      margin: 11px;
+      text-decoration: none;
+    }
+    nav ul li :hover{
+      margin: 5px;
+      background-color:#575656;
+      color:#ffffff;
+      border-radius: 10px;
+      padding: 6px;
+    }
+    nav form{
+      float:left;
+      margin-top: 17px;
+      margin-left: 520px;
+    }
+    nav form input[type="submit"]{
+      color: #fff;
+      padding: 3px;
+      background: none;
+      border: none;
+    }
+    nav form input[type="search"]{
+      border: none;
+      background: #3d3b3c;
+      padding: 4px;
+      margin-right : 10px;
+      border-radius: 4px ;
+    }
+    nav form input[type="search"]:hover{
+      background: #727272;
+    }
+    nav form input[type="submit"]:hover{
+      border-radius: 5px;
+      background-color:#383838;
+      color:#e4e4e4;
+      padding: 4px;
+    }
+    ::-webkit-input-placeholder {
+    color: rgb(255, 255, 255);
+    } 
+    .clear{
+      clear: both;
+    }
+    .logo img{
+      width: 50px;
+      margin-top: 10px;
+      margin-left: 10px;
+      float: left;
+    }
+    .turistapp{
+      margin-top: 20px;
+      float: left;
+      font-family: Stencil;
+      text-decoration: none;
+      color:rgb(184, 184, 184);
+    }
+    .turistapp:hover{
+      color: rgb(255, 255, 255);
+    }
+    .drop{
+      margin-right: 40px;
+      margin-top: 10px;
+      background: none;
+      border: none;
+    }
+    #dropdownMenuLink{
+      background: rgb(211, 211, 211);
+      border:none;
+      color:rgb(0, 0, 0)
+    }
+    .dropdown-menu{
+      background:rgb(211, 211, 211);
+    }
+    .dropdown-menu a{
+      color:rgb(0, 0, 0);
+    }
+    .dropdown-menu li{
+      display: block;
+      text-align: left;
+    }
+    .registro{
+      border: 1px rgb(0, 0, 0) solid;
+      background: rgb(255, 255, 255);
+      border-radius: 19px;
+      padding: 50px;
+      width: 700px;
       margin: 0 auto;
-      max-width: 1600;
     }
-
-    form{
-
-      margin:100px 300px;
+    .form-control{
+      margin-right: 30px;
+      border: none;
+      border-bottom: 1px black solid;
     }
-    h1{
-      position: relative;
+    #exampleInputPassword1{
+      width: 570px;
     }
-    
-
-
-    
-
-
-  </style>
-
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">TuristApp<img src="https://images.vexels.com/media/users/3/189958/isolated/preview/a8fceff32326526be33614491c430eaa-turista-con-silueta-de-bolsos.png" height=45px></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Donde te encuentras?</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contactanos</a>
-          </li>
-
-        </ul>        
-      </div>
-    </div>
-
-    
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item dropdown">
-        
-        {% if nav_logueado %}
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          {{ nombre_usuario }}
-        </a>
-        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -110px;">
-          <li><a class="dropdown-item" href="/miperfil">Mi Perfil</a> </li>
-          <li><a class="dropdown-item" href="/cerrarsesion">Cerrar Sesion</a></li>
-        </ul>
-        {% endif %}
-        {% if not nav_logueado %}
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Iniciar sesion
-        </a>
-        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -77px;">
-          <li><a class="dropdown-item" href="/login">Iniciar Sesion</a> </li>
-          <li><a class="dropdown-item" href="/registro">registrarte</a></li>
-        </ul>
-        {% endif %}
+    .btn{
+      background: #000000;
+      color: white;
+    }
+</style>
+<header>
+  <nav>
+    <a href="/">
+      <div class="logo">
+        <img src="static/images/logo.png" aling="center">
+        <div class="turistapp">TuristApp</div>
+      </div> 
+    </a>
+    <form>
+      <input type="search" placeholder="Buscar...">
+      <input type="submit" value="Buscar">
+    </form>
+    {% if not nav_logueado %}
+    <ul>
+      <li><a href="login">Iniciar sesión</a></li> /
+      <li><a href="registro">Registrarse</a></li>
     </ul>
-    
-
-
-
+    {% endif %}
+    {% if nav_logueado %}
+    <div class="drop">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+        {{nombre_usuario}}
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a  href="/perfil">Mi Perfil</a></li>
+        <li><a  href="/cerrarsesion">Cerrar Sesion</a></li>
+      </ul>
+      </div>
+      {% endif %}
+    <div class="clear"></div>
   </nav>
-
-
+</header>
   
+<div class="registro">
   <form action="/registrohecho" method="POST">
     <h1 for="basic-url" class="form-label">Registrate</h1>
     
     <label for="basic-url" class="form-label">Nombre Completo</label>
     <div class="input-group mb-3">
-      <span class="input-group-text">Primer nombre</span>
-      <input name= "primernombre" type="text" placeholder="Ejemplo: Juan" aria-label="First name" class="form-control">
-      <span class="input-group-text">Segundo nombre</span>
-      <input name="segundonombre" type="text" placeholder="Ejemplo: Perez"  aria-label="Last name" class="form-control">
+      <input name= "nombres" type="text" placeholder="Nombres" aria-label="First name" class="form-control">
+      <input name="apellidos" type="text" placeholder="Apellidos"  aria-label="Last name" class="form-control">
     </div>
 
     <label for="basic-url" class="form-label">Nombre de usuario (Alias)</label>
     <div class="input-group mb-3">
-      <span class="input-group-text" id="basic-addon1">@</span>
-      <input name= "username" type="text" class="form-control" placeholder="Ejemplo: PerezJuan1234" aria-label="Username" aria-describedby="basic-addon1">
+      <input name= "username" type="text" class="form-control" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
-    <label for="basic-url" class="form-label">Una breve descripcion tuya</label>
+    
+
+    <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
     <div class="input-group mb-3">
-      <input name= "descripcion" type="text" class="form-control" placeholder="ejemplo: hola buenas tardes soy el mejor" aria-label="Username" aria-describedby="basic-addon1">
+      <input name="correo" type="email" class="form-control" placeholder="Correo Electronico" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
 
-    <label for="basic-url" class="form-label">Foto de perfil</label>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input name="contrasena" type="password" class="form-control" placeholder="Contraseña" id="exampleInputPassword1">
+    </div>
+
+    <h1>Personaliza tu cuenta</h1>
+
+    <label for="basic-url" class="form-label">Foto de perfil (opcional)</label>
     <div class="input-group mb-3">
       <input name= "fotoperfil" type="text" class="form-control" placeholder="ingresa un enlace, ejemplo: https://sitio.com/imagen.jpg" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
-
-    <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+    <label for="basic-url" class="form-label">Foto de portada (opcional)</label>
     <div class="input-group mb-3">
-      <input name="correo" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <span class="input-group-text" id="basic-addon2">@ejemplo.com</span>
+      <input name= "fotoportada" type="text" class="form-control" placeholder="ingresa un enlace, ejemplo: https://sitio.com/imagen.jpg" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
 
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input name="contrasena" type="password" class="form-control" placeholder="ingresa una contraseña segura" id="exampleInputPassword1">
+
+    <label for="basic-url" class="form-label">Una breve descripcion tuya (opcional)</label>
+    <div class="input-group mb-3">
+      <input name= "descripcion" type="text" class="form-control" placeholder="ejemplo: hola, soy un emprendedor" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
-    </div>
-    <button type="submit" class="btn btn-primary">Registrarte</button>
+    
+
+
+    <button type="submit" class="btn">Registrarte</button>
   </form>
-
+</div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
+<!-- 
+<label for="basic-url" class="form-label">Foto de perfil</label>
+<input type="file" name="fotoperfil"> -->

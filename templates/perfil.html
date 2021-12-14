@@ -6,111 +6,459 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil - TuristApp</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="shortcut icon" href="static/images/logo.png"/>
+
 </head>
 <body>
   <style>
-    main{
+      body{
+      background: radial-gradient(circle at top left, #ffffff, #cccccc);  
+    }
+    .main{
+      width: 1200px;
+      margin: 20px auto;
+      z-index:-1;
+    }
+    .todo_footer{
+      width: 100%;
+      background-color: #000000;;
+      border-style: solid;
+      border-color: #000000;
+      color: aliceblue;
+      text-align: center;
+      float: left;
+    
+    }
+    .foto-footer{
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+      margin-left: 5px;
+      margin-top: 15px;
+    }
+    .foto-footer:hover{
+      box-shadow: blue;
+    }
+    .Logos-footer{
+      float: left;                                                                                                                                                                                                                                                
+      margin-left: 320px;
+      margin-right:291px;  
+    }
+    /* listas-footer */
+    .texto-footer{
+      text-align: left;
+      float: left;
+      margin-left: 40px;
+      border-style: none;
+    }
+    .texto-footer h2{
+      text-align: right;  
+    }
+    .texto-footer a{
+      list-style: none;
+      color: azure;
+      text-decoration: none;
+    }
+    .texto-footer li{
       margin-top: 20px;
-      margin-left: 20px
+      list-style: none;
     }
+    /* listas footer 2*/
+    .texto-footerV2{
+      text-align: right;
+      float: left;
+      border-style: none;
+    }
+    .texto-footerV2 a{
+      list-style: none;
+      color: azure;
+      text-decoration: none;
+    }
+    .texto-footerV2 li{
+      margin-top: 20px;
+      list-style: none;
+    }
+    .texto-sombra:hover{
+      text-decoration-line: underline;
+    }
+    header{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      left: 0;
+      z-index:100;
+    }
+    nav{
+      background: #000000;
+      text-align: right;
+      padding: 1px;
 
-    aside{
+      
+    }
+    nav ul{
+      border-radius: 10px;
+      float: right;
+      margin-top: 20px;
+      margin-right: 10px;
+      padding: 5px;
+    }
+    nav ul li{
+      position: center;
+      margin: 5px;
+      text-align: right;
+      display: inline;
+      text-decoration: none;
+      padding: 6px;
+      border-radius: 10px;
+    }
+    nav ul li a{
+      color: rgb(255, 255, 255);
+      margin: 11px;
+      text-decoration: none;
+    }
+    nav ul li :hover{
+      margin: 5px;
+      background-color:#242323;
+      color:#fff4f4;
+      border-radius: 10px;
+      padding: 6px;
+    }
+    nav form{
+      float:left;
+      margin-top: 17px;
+      margin-left: 520px;
+    }
+    nav form input[type="submit"]{
+      color: #fff;
+      padding: 3px;
+      background: none;
+      border: none;
+    }
+    nav form input[type="search"]{
+      border: none;
+      background: #3d3b3c;
+      padding: 4px;
+      margin-right : 10px;
+      border-radius: 4px ;
+    }
+    nav form input[type="search"]:hover{
+      background: #727272;
+    }
+    nav form input[type="submit"]:hover{
+      border-radius: 5px;
+      background-color:#383838;;
+      color:#e4e4e4;
+      padding: 4px;
+    }
+    ::-webkit-input-placeholder {
+    color: rgb(255, 255, 255);
+    } 
+
+    
+    .portada{
+      margin: auto;
+      height: 340px;
+      width: 980px;
+      display: block;
+      border-radius: 20px;
+      margin-top: 80px;
+      border: 2px black solid;
+    }
+    .perfil_foto{
       position: relative;
-      top: 10px;
+      top: -50px;
+      left: 260px;
+      height:190px;
+      width: 190px;
+      z-index: 1;
+      display: block;
+      clear: both;
+      border-radius: 20px;
+
     }
-
+    .nombre{
+      position: relative;
+      top: -160px;
+      left: 460px;
+      width: 200px;
+      z-index: 1;
+      display: inline;
+      clear: both;
+    }
+    section{
+      margin: 0 auto;
+      text-align: center;
+      width: 800px;
+      border:3px rgb(0, 0, 0) solid;
+      margin-top: -90px;
+      margin-bottom: 40px;
+    }
+    .clear{
+      clear: both;
+    }
+    .logo img{
+      width: 50px;
+      margin-top: 10px;
+      margin-left: 10px;
+      float: left;
+    }
+    .turistapp{
+      margin-top: 20px;
+      float: left;
+      font-family: Stencil;
+      text-decoration: none;
+      color:rgb(184, 184, 184);
+    }
+    .turistapp:hover{
+      color: rgb(255, 255, 255);
+    }
+    aside{
+      border-radius: 10px;
+      width: 360px;
+      max-height: 100%;
+      float: right;
+    }
+    .perfil{
+      width: 95%;
+      margin: 5px;
+    }
+    .perfil_negocio{
+      float: left;
+    }
+    aside a{
+      text-decoration: none;
+      color: black;
+    }
+    .perfil img{
+      width: 50px;
+    }
+    .perfil:hover{
+      background: #f5e8ec;
+      border-radius: 10px;
+      color:#000;
+    }
+    .drop{
+      margin-right: 40px;
+      margin-top: 10px;
+      background: none;
+      border: none;
+    }
+    #dropdownMenuLink{
+      background: rgb(211, 211, 211);
+      border:none;
+      color:rgb(0, 0, 0)
+    }
+    .dropdown-menu{
+      background:rgb(211, 211, 211);
+    }
+    .dropdown-menu a{
+      color:rgb(0, 0, 0);
+    }
+    .dropdown-menu a:hover{
+      background: #cac3c5;
+      color: #000000;
+    }
+    .dropdown-menu li{
+      display: block;
+      text-align: left;
+    }
+    #menu * { list-style:none; margin-top: 10px ; list-style: none;}
+    #menu li{ line-height:180%;}
+    #menu li a{color:#222; text-decoration:none;}
+    #menu li a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
+    #menu input[name="list"] {
+      position: relative;
+      left: -1000em;
+      list-style: none;
+      }
+    #menu label:before{ content:"\025b8"; margin-right:4px;}
+    #menu input:checked ~ label:before{ content:"\025be";}
+    #menu .interior{display: none;}
+    #menu input:checked ~ ul{display:block;}
+    .btn{
+      margin-top: 6px;
+      margin-bottom: 6px;
+      background: #000000;
+      color: #fff;
+    }
+    .btn:hover{
+      background: #1d1d1d;
+      color: #afafaf;
+    }
+    .letra{
+      color: #fff;
+      float: right;
+      list-style: none;
+    }
+    .boton-negocio{
+      border-radius: 10px;
+      padding: 5px;
+      display: block;
+      color: blue;
+    }
+    .boton-negocio:hover{
+      background: #cac3c5;
+      border-radius: 10px;
+      padding: 5px;
+      color:#9a123c;
+    }
+    .card-img-top{
+      height: 250px;
+      width: 100%;
+      text-align: center;
+    }
+    .negocios-visualizar{
+      border-style: solid;
+      border-color:black;
+      margin: 40px;
+      float: left;
+    }
+    .titulo{
+      border-style: solid;
+      border-color: #000;
+      background-color: #000;
+      width: 100%;
+      height: 50px;
+      color: #ddd;
+      margin:0;
+    }
   </style>
+<main>
+  <header>
+    <nav>
+      <a href="/">
+        <div class="logo">
+          <img src="/static/images/logo.png">
+          <div class="turistapp">TuristApp</div>
+        </div> 
+      </a>
+      
+      {% if not nav_logueado %}
+      <ul>
+        <li><a href="login">Iniciar sesión</a></li> /
+        <li><a href="registro">Registrarse</a></li>
+      </ul>
+      {% endif %}
+      {% if nav_logueado %}
+      <div class="drop">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="true">
+          {{nombre_usuario}}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a  href="/perfil">Mi Perfil</a></li>
+          <li><a  href="/cerrarsesion">Cerrar Sesion</a></li>
+        </ul>
+        </div>
+        {% endif %}
+      <div class="clear"></div>
+    </nav>
+</header>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
 
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">TuristApp<img src="https://images.vexels.com/media/users/3/189958/isolated/preview/a8fceff32326526be33614491c430eaa-turista-con-silueta-de-bolsos.png" height=45px></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+{% if fotoportada == "" %}
 
-        <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Donde te encuentras?</a>
-        </li>
+<div class="container">
+  <img class="portada" src="/static/images/portada.png">
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contactanos</a>
-        </li>
+</div>
+{% endif %}
+{% if fotoportada != "" %}
+<div class="container">
+  <img class="portada" src="{{fotoportada}}">
 
-      </ul>        
+</div>
+{% endif %}
+
+{% if fotoperfil == "" %}
+<img class="perfil_foto"  src="/static/images/user.png">
+  <h1 class="nombre">{{ nombre_usuario }}</h1><br>
+  <p class="nombre">{{descripcion}}</p>
+  <div class="clear"></div>
+{% endif %}
+
+
+{% if fotoperfil != "" %}
+<img class="perfil_foto"  src="{{fotoperfil}}">
+  <h1 class= "nombre">{{nombres}} {{apellidos}}</h1><br>
+  <h4 class="nombre">({{ nombre_usuario }})</h4> <br>
+  <p class="nombre">{{descripcion}}</p>
+  <div class="clear"></div>
+{% endif %}
+
+
+<section>
+  
+  {%if not arreglo_misnegocios %}
+
+  <h1>Awww! aun no tienes negocios creados!</h1>
+  <a href="/crearnegocios" class="btn btn-primary">Crea tu primer negocio!</a>
+
+
+  {% endif %}
+
+  {%if arreglo_misnegocios %}
+
+  <a href="/crearnegocios" class="btn">Crear un nuevo negocio</a>
+
+  <h1>Mis negocios</h1>
+
+  {% for negocio in arreglo_misnegocios %}
+
+
+  <div class="negocios-visualizar" style="width: 18rem;">
+    <img src="{{negocio[3]}}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="titulo">{{negocio[1]}}</h5>
+      <p class="card-text">categoria: {{negocio[0]}}</p>
+      <a href="/minegocio" class="btn">Ir al negocio</a>
     </div>
   </div>
+  {% endfor %}
 
-  
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-    <li class="nav-item dropdown">
+  {% endif %}
+  <div class="clear"></div>
+</section> 
+</main>
+
+
+
+
+
+<footer class="todo_footer">
+  <!--<div class="texto-info">
+      <p>Nuestro servicio de suscripción para propietarios  de negocios
+      está diseñado para brindarle una manera de maximizar la exposición
+      de su negocio y llegar a más clientes potenciales.</p>
+  </div>
+-->
+  <div class="texto-footer">
+      <h2>Soporte tecnico</h2>
+      <ul>
+          <li class="texto-sombra"><a href="../contactanos">Contactanos</a></li>
+          <li class="texto-sombra"><a href="terminos_condiciones">Terminos y condiciones</a></li>
+          <li class="texto-sombra"><a href="politica_privacidad">Politica de Privacidad</a></li>
+      </ul>
+  </div>
+  <div class="Logos-footer">
+      <h2>TuristApp</h2>
+          <a href="https://www.facebook.com/groups/440829344233658" target="blank"><img class="foto-footer"src="/static/images/facebook.png"></a>
+          <a href="Soporte_techico.html"><img class="foto-footer"src="/static/images/instagram-blanco.png"></a>
+          <a href="servicios.html"><img class="foto-footer"src="/static/images/twiter.png"></a>
+          <a href="servicios.html"><img class="foto-footer"src="/static/images/logo-youtube.png"></a>
+  </div>
+  <div class="texto-footerV2">
+      <h2>Nosotros</h2>
+      <ul>
+          
+          <li class="texto-sombra"><a href="Quienes_Somos">Quienes Somos</a></li>
+          <li class="texto-sombra"><a href="Sobre_nosotros">Sobre nosotros</a></li>
+          <li class="texto-sombra"><a href="Desarrolladores">Desarrolladores</a></li>
+      </ul>
       
-      {% if nav_logueado %}
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ nombre_usuario }}
-      </a>
-      <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -110px;">
-        <li><a class="dropdown-item" href="/miperfil">Mi Perfil</a> </li>
-        <li><a class="dropdown-item" href="/cerrarsesion">Cerrar Sesion</a></li>
-      </ul>
-      {% endif %}
-      {% if not nav_logueado %}
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Iniciar sesion
-      </a>
-      <ul class="dropdown-menu"  aria-labelledby="navbarDropdown" style="margin: 7px -77px;">
-        <li><a class="dropdown-item" href="/login">Iniciar Sesion</a> </li>
-        <li><a class="dropdown-item" href="/registro">registrarte</a></li>
-      </ul>
-      {% endif %}
-  </ul>
-  
-
-
-
-</nav>
-
-
-  <main>
-
-    {% if creadonegocio %}
-    <p><div class="alert alert-success" role="alert">
-      has creado el negocio con exito!
-    </div></p>
-    {% endif %}
-
-    <div class="card" style="width: 18rem;">
-      <img src="{{fotoperfil}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{ nombre_usuario }}</h5>
-        <p class="card-text">{{ descripcion }}</p>
-        <a href="/crearnegocios" class="btn btn-primary">Crear nuevo negocio</a>
-      </div>
-    </div>
-
-  </main>
-
-  <aside>
-    <h1>en este apartado irian tus negocios</h1>
-    
-    {% for negocio in arreglo_misnegocios %}
-    <div class="card" style="width: 18rem;">
-      <img src="{{negocio[3]}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{negocio[1]}}</h5>
-        <p class="card-text">categoria: {{negocio[0]}}</p>
-        <a href="#" class="btn btn-primary">Editar negocio</a>
-      </div>
-    </div>
-    {% endfor %}
-    
-  </aside>
-  
-
+  </div>
+</footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
